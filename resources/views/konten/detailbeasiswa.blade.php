@@ -84,11 +84,12 @@
                     </div>
                 </div>
             </div>  
-            <p class="font-normal text-navy-700 mt-20 mx-auto w-max">This data is provided by Kelompok 3</p>  
         </div>
 
-<!-- Back to top Start -->
-<a id="to-top" href="#home" class="fixed hidden items-center justify-center bottom-4 right-4 z-[9999] p-4 h-14 w-14 bg-primary rounded-full hover:animate-pulse">
+    @include('layout.footer')
+
+    <!-- Back to top Start -->
+    <a id="to-top" href="#home" class="fixed hidden items-center justify-center bottom-4 right-4 z-[9999] p-4 h-14 w-14 bg-primary rounded-full hover:animate-pulse">
         <span class="block w-5 h-5 border-t-2 border-l-2 rotate-45 mt-2"></span>
     </a>
     <!-- Back to top End -->

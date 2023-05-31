@@ -87,23 +87,74 @@
         </div>
     </section>
 
-    <?php $i=0; ?>
-        @if(isset($bs) && isset($mhs))
-        @while(isset($bs['data'][$i]))
-        @if($mhs['data']['relationship']['status'] == "Aktif")
-        @if( $mhs['data']['relationship']['semester_terdaftar'] > $bs['data'][$i]['semMin']  && $mhs['data']['relationship']['status'] == "Aktif" &&  $mhs['data']['relationship']['semester_terdaftar'] < $bs['data'][$i]['semMax'] && $jrsn['data']['relationship']['ipkMin'] >= 3.00)
-        
-            {{$bs['data'][$i]['namaBeasiswa']}} =
-            {{$bs['data'][$i]['semMin']}} <
-            {{$mhs['data']['relationship']['semester_terdaftar']}} <
-            {{$bs['data'][$i]['semMax']}}
-                        @else()
-                    @endif 
-                        <br>
+<!-- Portfolio Section Start -->
+@if(isset($bs) && isset($mhs))
+    
+    <section id="portfolio" class="pb-16 dark:bg-slate-800">
+        <div class="container max-w-screen relative mt-8">
+            <div class="w-full px-4 -mt-12">
+                <div class="max-w-xl mx-auto text-center mb-8 ">
+                    <h4 class="font-semibold text-lg text-primary mb-2">Beasiswa</h4>
+                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Beasiswa Eligible</h2>
+                    <p class="font-medium text-md text-secondary md:text-lg">Berikut adalah Beasiswa Eligible untuk Kamu</p>
+                </div>
+            </div>
+            
+            @if($mhs['data']['relationship']['status'] == "Aktif")
+            <?php 
+                $success = $mhs['data']['relationship']['status'];
+                $i=0; 
+            ?>
+            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                @while(isset($bs['data'][$i]))
+                    @if($mhs['data']['relationship']['semester_terdaftar'] > $bs['data'][$i]['semMin'] && $mhs['data']['relationship']['semester_terdaftar'] < $bs['data'][$i]['semMax'])
+                        <div class="mb-12 p-4 md:w-1/2">
+                            <div class="rounded-t-md shadow-md overflow-hidden bg-white ">
+                                <img  src="https://img.freepik.com/premium-vector/3d-hand-throwing-graduation-hats-air_169241-7265.jpg" alt="Programming" class="w-full">
+                                <div class="py-8 px-6">
+                                    <h3>
+                                    <a href="{{url('/posts/detailbeasiswa/'.$bs['data'][$i]['idBeasiswa'])}}" class="block mb-3 font-semibold text-lg text-dark hover:text-primary truncate dark:text-white">{{$bs['data'][$i]['namaBeasiswa']}}</a>
+                                    </h3>
+                                    <p class="font-medium text-base text-secondary mb-6">{{$bs['data'][$i]['deskripsi']}}</p>
+                                    <a href="{{url('/posts/detailbeasiswa/'.$bs['data'][$i]['idBeasiswa'])}}" class="font-medium text-sm text-primary hover:opacity-80 flex justify-end text-right">Lihat Selengkapnya</a>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                     <?php $i++; ?>
-            @endwhile
-        @endif
+                @endwhile
+            @else
+                <?php $error = $mhs['data']['relationship']['status']; ?>
+            </div>
+            @endif
+        </div>
+    </section>
+@endif
+
+   {{-- Alert --}}
+   @if (isset($error))
+   <div id="myAlert" class="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center">
+       <div class="bg-white w-1/3 p-6 rounded-xl shadow-xl border border-slate-200">
+           <p class="text-xl font-bold mb-4">❌ Gagal</p>
+           <p id="alertMessage" class="text-gray-700 mb-10">Mohon maaf status kamu, {{ $error }}</p>
+           <div class="flex items-center justify-center">
+               <button id="closeAlert" class="bg-primary hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Close</button>
+           </div>
+       </div>
+   </div>
+   @endif
+   @if (isset($success))
+   <div id="myAlert" class="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center">
+       <div class="bg-white w-1/3 p-6 rounded-xl shadow-xl border border-slate-200">
+           <p class="text-xl font-bold mb-4">✅ Berhasil</p>
+           <p id="alertMessage" class="text-gray-700 mb-10">Selamat {{ $mhs['data']['attributes']['nama'] }}. Silakan lihat beasiswa yang eligible untuk Kamu</p>
+           <div class="flex items-center justify-center">
+               <button id="closeAlert" class="bg-primary hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Close</button>
+           </div>
+       </div>
+   </div>
+   @endif
+   {{-- End Alert --}}
 
     <!-- footer -->
     @include('layout.footer')
@@ -115,6 +166,19 @@
     <!-- Back to top End -->
 
     @vite('resources/js/app.js')
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeBtn = document.getElementById('closeAlert');
+            const alert = document.getElementById('myAlert');
+            
+            function hideAlert() {
+                alert.style.display = 'none';
+            }
+    
+            closeBtn.addEventListener('click', function() {
+                hideAlert();
+            });
+        });
+    </script>
 </body>
 </html>

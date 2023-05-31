@@ -86,30 +86,6 @@
                 </div>
                 <?php $i++; ?>
                 @endwhile
-                <!-- <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-                        <img src="dist/img/beasiswa/bi.jpg" alt="Programming" class="w-full">
-                        <div class="py-8 px-6">
-                            <h3>
-                                <a href="#" class="block mb-3 font-semibold text-lg text-dark hover:text-primary truncate dark:text-white">Beasiswa Bank Indonesia</a>
-                            </h3>
-                            <p class="font-medium text-base text-secondary mb-6">Beasiswa Bank Indonesia adalah beasiswa yang diberikan kepada mahasiswa dari universitas yang bermitra dengan Bank Indonesia</p>
-                            <a href="#" class="font-medium text-sm text-primary hover:opacity-80 flex justify-end text-right">Lihat Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-                        <img src="dist/img/beasiswa/rk.jpg" alt="Programming" class="w-full">
-                        <div class="py-8 px-6">
-                            <h3>
-                                <a href="#" class="block mb-3 font-semibold text-lg text-dark hover:text-primary truncate dark:text-white">Beasiswa Rumah Kepemimpinan</a>
-                            </h3>
-                            <p class="font-medium text-base text-secondary mb-6">Beasiswa Karya Salemba adalah beasiswa yang diberikan kepada mahasiswa dari universitas yang bermitra dengan Bank Indonesia</p>
-                            <a href="#" class="font-medium text-sm text-primary hover:opacity-80 flex justify-end text-right">Lihat Selengkapnya</a>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>

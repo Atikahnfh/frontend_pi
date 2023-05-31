@@ -18,7 +18,7 @@ class BeasiswaController extends Controller
     public function __construct()
     {
         // Inisialisasi nilai awal variabel
-        $this->token = '21|QriEFpwmow6OSImpxD5a8O1gvf6YfvYeyIU9QMvv';
+        $this->token = '19|ujcXH6zrRswMEFS7KuNCpZB5dUQ5VoUQshxFatYK';
     }
 
     public function read_beasiswa()
@@ -99,12 +99,12 @@ class BeasiswaController extends Controller
         $_SESSION['halaman'] = "beasiswa";
 
         $client = new Client([
-            'base_uri' => 'http://127.0.0.1:8003/',
+            'base_uri' => 'http://127.0.0.1:8002/',
             'timeout'  => 10,
         ]);
         $response = $client->request('GET', 'api/mahasiswa/'.$r->nim, [
             'headers' => [
-                'Authorization' => 'Bearer '."16|kWwihZBB1DFHN5FvgM7ZPF4S4wpRXeeEsLYQRpt4",
+                'Authorization' => 'Bearer '."17|0G7fle69g7RsU2yMtLvZW9yQAHbL502KQxRfbS8K",
                 'Accept' => 'application/json'
             ]
         ]);
@@ -116,22 +116,16 @@ class BeasiswaController extends Controller
             'base_uri' => 'http://127.0.0.1:8000/',
             'timeout'  => 10,
         ]);
-        $response = $client->request('GET', 'api/v1/beasiswas', [
-            'headers' => [
-                'Authorization' => 'Bearer '.$this->token,
-                'Accept' => 'application/json'
-            ]
-        ]);
-        $response2 = $client->request('GET', 'api/v1/jrsnbeasiswas', [
+        $response = $client->request('GET', 'api/v1/beasiswas?includeJurusans=true', [
             'headers' => [
                 'Authorization' => 'Bearer '.$this->token,
                 'Accept' => 'application/json'
             ]
         ]);
         $bs = json_decode($response->getBody()->getContents(), true);
-        $jrsn = json_decode($response->getBody()->getContents(), true);
 
-// return $bs;
-        return view('konten.cek-eligible',['mhs'=>$mhs, 'bs'=>$bs, 'jrsn'=>$jrsn]);
+        // return $bs['data'][3]['jurusanbeasiswas'][0]['ipkMin'];
+
+        return view('konten.cek-eligible',['mhs'=>$mhs, 'bs'=>$bs]);
     }
 } 
