@@ -19,7 +19,11 @@
                     <img src="https://img.freepik.com/premium-vector/3d-hand-throwing-graduation-hats-air_169241-7265.jpg" class="w-full h-64 mx-auto" alt="img1" />
                 </div>
                 <div class='bg-slate-200 rounded-b-lg px-8 -mt-5'>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-slate-500">{{$beasiswa[$i]['namaBeasiswa']}}</h3>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-slate-500">
+                    <a href="{{url('/posts/detailbeasiswa/'.$beasiswa[$i]['idBeasiswa'])}}" class="block mb-3 font-semibold text-lg text-dark hover:text-primary truncate dark:text-white">
+                        {{$beasiswa[$i]['namaBeasiswa']}}
+                    </a>
+                    </h3>
                     <!-- <p class="font-medium text-justify text-base text-secondary -mt-4 pb-3">{{$beasiswa[$i]['deskripsi']}}</p> -->
                 </div>
             </div>
@@ -28,7 +32,7 @@
         </div>
         
         <div class="mx-96 justify-center pl-44 -mt-8 pb-8">
-            <a href="{{url('/posts/daftarbeasiswa')}}" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out justify-center">Lihat Selengkapnya</a>
+            <a href="{{url('daftar-beasiswa')}}" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out justify-center">Lihat Selengkapnya</a>
         </div>
     </div>
 </section>

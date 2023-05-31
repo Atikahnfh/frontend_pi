@@ -71,18 +71,39 @@
     <!-- Intro Section End -->
 
     <!-- Portfolio Section Start -->
-    <section id="portfolio" class="pb-[220px] dark:bg-slate-800">
+    <section id="portfolio" class="pb-[220px] dark:bg-dark">
         <div class="container">
+            <form method="POST" action="/cek-eligible">
+                @csrf
             <div class="flex items-center justify-center">
                 <div class="max-w-md mx-auto">
                 <div class="flex">
-                    <input type="text" id="name" class="border border-slate-500 rounded-l-3xl w-full text-dark p-3 focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" placeholder="Masukkan NIM kamu..."/>
-                    <button type="submit" class="bg-primary hover:opacity-70 hover:bg-primary text-white font-medium rounded-r-3xl px-8 py-2">Cek</button>
+                    <input type="text" id="nim" name="nim" class="border border-slate-500 rounded-l-lg w-full text-dark p-3 focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" placeholder="Masukkan NIM kamu..."/>
+                    <button type="submit" class="bg-primary hover:opacity-70 hover:bg-primary text-white font-medium rounded-r-lg px-8 py-2">Cek</button>
                 </div>
                 </div>
             </div>
+            </form>
         </div>
     </section>
+
+    <?php $i=0; ?>
+        @if(isset($bs) && isset($mhs))
+        @while(isset($bs['data'][$i]))
+        @if($mhs['data']['relationship']['status'] == "Aktif")
+        @if( $mhs['data']['relationship']['semester_terdaftar'] > $bs['data'][$i]['semMin']  && $mhs['data']['relationship']['status'] == "Aktif" &&  $mhs['data']['relationship']['semester_terdaftar'] < $bs['data'][$i]['semMax'] && $jrsn['data']['relationship']['ipkMin'] >= 3.00)
+        
+            {{$bs['data'][$i]['namaBeasiswa']}} =
+            {{$bs['data'][$i]['semMin']}} <
+            {{$mhs['data']['relationship']['semester_terdaftar']}} <
+            {{$bs['data'][$i]['semMax']}}
+                        @else()
+                    @endif 
+                        <br>
+                    @endif
+                    <?php $i++; ?>
+            @endwhile
+        @endif
 
     <!-- footer -->
     @include('layout.footer')

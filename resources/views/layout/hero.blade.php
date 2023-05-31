@@ -3,11 +3,11 @@
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full self-center px-4 lg:w-1/2">
-                    <h1 class="text-base font-semibold text-primary md:text-xl">#Ayo Hunting Beasiswa🙌🏻, di<span class="block font-bold text-dark text-4xl lg:text-5xl dark:text-white">Sholarfy</span></h1>
+                    <h1 class="text-base font-semibold text-primary md:text-xl">#Ayo Hunting Beasiswa🙌🏻, di<span class="block font-bold text-dark text-4xl lg:text-5xl dark:text-white">Scholarfy</span></h1>
                     <h2 class="font-medium text-secondary text-md mb-5 lg:text-2xl">Platform <span class="text-dark dark:text-slate-300">Informasi Beasiswa</span></h2>
                     <p class="font-medium text-secondary mb-10 leading-relaxed">Mendapatkan beasiswa itu mudah dan praktis bukan. <span class="text-dark font-bold dark:text-white">bukan!</span></p>
 
-                    <a href="#" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 trasition duration-300 ease-in-out">Cek Eligible</a>
+                    <a href="{{ url('/cek-eligible') }}" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 trasition duration-300 ease-in-out">Cek Eligible</a>
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10 lg:mt-0 lg:right-0">

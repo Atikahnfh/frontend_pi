@@ -20,16 +20,18 @@ use App\Http\Controllers\BeasiswaController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/cek-eligible', function () {
-    return view('cek-eligible');
-});
+// Route::get('/cek-eligible', function () {
+//     return view('konten.cek-eligible');
+// });
 Route::get('/daftar-beasiswa', function () {
     return view('daftar-beasiswa');
 });
 
 
-Route::get('/posts/daftarbeasiswa', [BeasiswaController::class, 'all_beasiswa']);
+Route::get('/daftar-beasiswa', [BeasiswaController::class, 'all_beasiswa']);
 Route::get('/beasiswa', [BeasiswaController::class, 'read_beasiswa']);
 Route::get('/', [BeasiswaController::class, 'read_beasiswa']);
 // Route::get('/posts/detailbeasiswa', [BeasiswaController::class, 'detail_beasiswa']);
 Route::get('/posts/detailbeasiswa/{id}', [BeasiswaController::class, 'detail_beasiswa']);
+Route::get('/cek-eligible', [BeasiswaController::class, 'show_check']);
+Route::post('/cek-eligible', [BeasiswaController::class, 'check_eligible']);

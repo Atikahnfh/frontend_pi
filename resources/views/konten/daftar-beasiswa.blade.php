@@ -65,23 +65,28 @@
                     <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl dark:text-white">Temukan Beasiswa yang Cocok untuk Kamu!</h2>
                     <!-- <p class="font-medium text-base text-secondary max-w-xl lg:tx-lg">Scholarfy membantu anda mendapatkan beasiswa terbaik. Anda dapat memeriksa eligibilitas anda pada scholarfy. Scholarfy juga memberikan informasi terupdate seputar beasiswa.</p> -->
                 </div>
-
             </div>
 
+            <?php $beasiswa = $beasiswa['data']; ?>
+
             <div class="flex flex-wrap">
+                <?php $i = 0; ?>
+                @while(isset($beasiswa[$i]))  
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-                        <img  src="dist/img/beasiswa/kse.jpg" alt="Programming" class="w-full">
+                        <img  src="https://img.freepik.com/premium-vector/3d-hand-throwing-graduation-hats-air_169241-7265.jpg" alt="Programming" class="w-full">
                         <div class="py-8 px-6">
                             <h3>
-                                <a href="#" class="block mb-3 font-semibold text-lg text-dark hover:text-primary truncate dark:text-white">Beasiswa Karya Salemba Empat</a>
+                                <a href="{{url('/posts/detailbeasiswa/'.$beasiswa[$i]['idBeasiswa'])}}" class="block mb-3 font-semibold text-lg text-dark hover:text-primary truncate dark:text-white">{{$beasiswa[$i]['namaBeasiswa']}}</a>
                             </h3>
-                            <p class="font-medium text-base text-secondary mb-6">Beasiswa Karya Salemba adalah beasiswa yang diberikan kepada mahasiswa dari universitas yang bermitra dengan Yayasan Karya Salemba Empat...</p>
-                            <a href="#" class="font-medium text-sm text-primary hover:opacity-80 flex justify-end text-right">Lihat Selengkapnya</a>
+                            <p class="font-medium text-base text-secondary mb-6">{{$beasiswa[$i]['deskripsi']}}</p>
+                            <a href="{{url('/posts/detailbeasiswa/'.$beasiswa[$i]['idBeasiswa'])}}" class="font-medium text-sm text-primary hover:opacity-80 flex justify-end text-right">Lihat Selengkapnya</a>
                         </div>
                     </div>
                 </div>
-                <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+                <?php $i++; ?>
+                @endwhile
+                <!-- <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
                         <img src="dist/img/beasiswa/bi.jpg" alt="Programming" class="w-full">
                         <div class="py-8 px-6">
@@ -104,7 +109,7 @@
                             <a href="#" class="font-medium text-sm text-primary hover:opacity-80 flex justify-end text-right">Lihat Selengkapnya</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

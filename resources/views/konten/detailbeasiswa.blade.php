@@ -19,81 +19,73 @@
 <body>
 @include('layout.header')
 
-<section id="portfolio" class="pt-36 pb-16 dark:bg-slate-800">
-    <div class="container max-w-screen relative mt-8">
+    <div class="container max-w-screen relative mt-40">
         <div class="w-full px-4 -mt-12">
             <div class="max-w-xl mx-auto text-center mb-8">
-                <h4 class="font-semibold text-lg text-primary mb-2">Beasiswa</h4>
-                <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Beasiswa Terbaru</h2>
-                <p class="font-medium text-md text-secondary md:text-lg">Jelajahi informasi terbaru beasiswa dan jadilah awardee beasiswa dari beasiswa-beasiswa terbaik di dunia.</p>
+                <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Detail Beasiswa</h2>
+                <p class="font-medium text-md text-secondary md:text-lg mb-8">Cek Informasi Detail Beasiswa</p>
             </div>
         </div>
-        
-        <div className="bg-white max-w-2xl shadow-xl overflow-hidden sm:rounded-lg">
-          <div className="px-4 py-5 sm:px-6">
-            <h3 className="text-lg leading-6 font-medium text-gray-900">
-              Detail Beasiswa
-            </h3>
-          </div>
-            
-        <?php $beasiswa = $beasiswa['data']; ?>
+    </div>    
+    
+    <!-- cards detail beasiswa -->
+    <div class="flex flex-col justify-center items-center h-[100vh] -mt-5 bg-slate-100">
+          <?php $beasiswa = $beasiswa['data']; ?>
 
-          <div className="border-t border-gray-200">
-          <?php $i = 0; ?>
-            <dl>
-              <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">
-                  Nama Beasiswa
-                </dt>
-                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {{$beasiswa['namaBeasiswa']}}
+            <div class="relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none p-3">
+            <?php $i = 0; ?>    
+                <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                    <p class="text-base font-medium text-navy-700 dark:text-white">
+                      {{$beasiswa['namaBeasiswa']}}
+                    </p>
+                </div>
+                <div class="mt-2 mb-8 w-full">
+                    <h4 class="px-2 text-xl font-bold text-navy-700 dark:text-white">
+                    Deskripsi
+                    </h4>
+                    <p class="mt-2 px-2 text-base text-gray-600">
+                    {{$beasiswa['deskripsi']}}
+                    </p>
+                </div> 
+                <div class="grid grid-cols-2 gap-4 px-2 w-full">
+                    <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                    <p class="text-sm text-gray-600">Semester Minimal</p>
+                    <p class="text-base font-medium text-navy-700 dark:text-white">
+                    {{$beasiswa['semMin']}}
+                    </p>
+                    </div>
 
-                </dd>
-              </div>
-              <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">
-                  Deskripsi
-                </dt>
-                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {{$beasiswa['deskripsi']}}
-                </dd>
-              </div>
-              <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">
-                  Semester Minimal
+                    <div class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                    <p class="text-sm text-gray-600">Semester Maksimal</p>
+                    <p class="text-base font-medium text-navy-700 dark:text-white">
+                    {{$beasiswa['semMax']}}
+                    </p>
+                    </div>
 
-                </dt>
-                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {{$beasiswa['semMin']}}
-                </dd>
-              </div>
-              <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">
-                  Semester Maksimal
+                    <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                    <p class="text-sm text-gray-600">Angkatan Awal</p>
+                    <p class="text-base font-medium text-navy-700 dark:text-white">
+                    {{$beasiswa['angkatanAwal']}}
+                    </p>
+                    </div>
 
-                </dt>
-                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {{$beasiswa['semMax']}}
-                </dd>
-              </div>
-              <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">
-                  status
-                </dt>
-                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                  {{$beasiswa['status']}}
-                  </span>
-                </dd>
-              </div>
-            </dl>
-          </div>
+                    <div class="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                    <p class="text-sm text-gray-600">Angkatan Akhir</p>
+                    <p class="text-base font-medium text-navy-700 dark:text-white">
+                    {{$beasiswa['angkatanAkhir']}}
+                    </p>
+                    </div>
+
+                    <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+                    <p class="text-sm text-gray-600">Status</p>
+                    <p class="text-base font-medium text-navy-700 dark:text-white">
+                    {{$beasiswa['status']}}
+                    </p>
+                    </div>
+                </div>
+            </div>  
+            <p class="font-normal text-navy-700 mt-20 mx-auto w-max">This data is provided by Kelompok 3</p>  
         </div>
-        
-        
-        
-    </div>
-</section>
 
 <!-- Back to top Start -->
 <a id="to-top" href="#home" class="fixed hidden items-center justify-center bottom-4 right-4 z-[9999] p-4 h-14 w-14 bg-primary rounded-full hover:animate-pulse">
