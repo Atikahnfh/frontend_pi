@@ -17,8 +17,14 @@ use App\Http\Controllers\BeasiswaController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/cek-eligible', function () {
+    return view('cek-eligible');
+});
+Route::get('/daftar-beasiswa', function () {
+    return view('daftar-beasiswa');
 });
 
 Route::get('/beasiswa', [BeasiswaController::class, 'read_beasiswa']);
