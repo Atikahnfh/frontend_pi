@@ -17,6 +17,7 @@
     </script>
 </head>
 <body>
+
     <!-- header -->
         @include('layout.header')
     
@@ -27,8 +28,9 @@
         @include('layout.about')
     
     <!-- portfolio -->
+
         @include('layout.portfolio')
-   
+    
     <!-- clients -->
         @include('layout.clients')
    
