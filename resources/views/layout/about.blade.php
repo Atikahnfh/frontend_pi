@@ -1,5 +1,5 @@
      <!-- About Section Start -->
-     <section id="about" class="pt-36 pb-32 dark:bg-dark">
+     <section id="about" class="pt-36 dark:bg-dark">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-10 lg:w-1/2">

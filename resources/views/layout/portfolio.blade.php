@@ -13,30 +13,30 @@
 
         <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
             <?php $i = 0; ?>
-            @while(isset($beasiswa[$i]) && $i < 4)                            
+            @while(isset($beasiswa[$i]) && $i < 4)       
             <div class="mb-12 p-4 md:w-1/2">
-                <div class="rounded-t-md shadow-md overflow-hidden bg-white ">
-                    <img src="https://img.freepik.com/premium-vector/3d-hand-throwing-graduation-hats-air_169241-7265.jpg" class="w-full h-64 mx-auto" alt="img1" />
-                </div>
-                <div class='bg-slate-200 rounded-b-lg px-8 -mt-5'>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-slate-500">
-                    <a href="{{url('/posts/detailbeasiswa/'.$beasiswa[$i]['idBeasiswa'])}}" class="block mb-3 font-semibold text-lg text-dark hover:text-primary truncate dark:text-white">
-                        {{$beasiswa[$i]['namaBeasiswa']}}
+                <div class="rounded-md shadow-md overflow-hidden">
+                    <a href="{{ url('/detail-beasiswa/'.$beasiswa[$i]['idBeasiswa']) }}">
+                        <img src="{{ $beasiswa[$i]['image'] }}" width="w-full" alt="Landing Page">
                     </a>
-                    </h3>
-                    <!-- <p class="font-medium text-justify text-base text-secondary -mt-4 pb-3">{{$beasiswa[$i]['deskripsi']}}</p> -->
                 </div>
+                <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
+                    <a href="{{ url('/detail-beasiswa/'.$beasiswa[$i]['idBeasiswa']) }}" class="block font-semibold text-lg text-dark hover:text-primary truncate dark:text-white dark:hover:text-primary">{{ $beasiswa[$i]['namaBeasiswa'] }}</a>
+                </h3>
+                <span class="font-medium text-justify text-base text-secondary">
+                    {!! Str::limit($beasiswa[$i]['deskripsi'], 100) !!} 
+                </span>
             </div>
             <?php $i++; ?>
             @endwhile
         </div>
         
-        <div class="mx-96 justify-center pl-44 -mt-8 pb-8">
-            <a href="{{url('daftar-beasiswa')}}" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out justify-center">Lihat Selengkapnya</a>
+        <div class="w-full flex justify-center">
+            <div class="w-60">
+                <a href="{{ url('/daftar-beasiswa') }}" class="inline-flex justify-center text-base font-medium text-white text-md bg-primary py-2 px-4 rounded-3xl w-full hover:opacity-80 hover:shadow-lg transition duration-500">Lihat Selengkapnya</a>
+            </div>
         </div>
     </div>
 </section>
-
-    
-    <!-- Portfolio Section End -->
+<!-- Portfolio Section End -->
   

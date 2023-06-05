@@ -26,12 +26,15 @@ use App\Http\Controllers\BeasiswaController;
 Route::get('/daftar-beasiswa', function () {
     return view('daftar-beasiswa');
 });
+Route::get('/detail-beasiswa', function () {
+    return view('konten.detail-beasiswa');
+});
 
 
 Route::get('/daftar-beasiswa', [BeasiswaController::class, 'all_beasiswa']);
 Route::get('/beasiswa', [BeasiswaController::class, 'read_beasiswa']);
 Route::get('/', [BeasiswaController::class, 'read_beasiswa']);
 // Route::get('/posts/detailbeasiswa', [BeasiswaController::class, 'detail_beasiswa']);
-Route::get('/posts/detailbeasiswa/{id}', [BeasiswaController::class, 'detail_beasiswa']);
+Route::get('/detail-beasiswa/{id}', [BeasiswaController::class, 'detail_beasiswa']);
 Route::get('/cek-eligible', [BeasiswaController::class, 'show_check']);
 Route::post('/cek-eligible', [BeasiswaController::class, 'check_eligible']);

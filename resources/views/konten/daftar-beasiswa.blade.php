@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scholarfy</title>
+    <title>Scholarfy | {{ $_SESSION['halaman'] }}</title>
     <link rel="stylesheet" href="dist/output.css">
     @vite('resources/css/app.css')
 
@@ -18,7 +18,7 @@
 </head>
 <body>
     <!-- Header Start -->
-    <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
+    {{-- <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
         <div class="container">
             <div class="flex items-center justify-between relative">
                 <div class="px-4">
@@ -53,7 +53,8 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> --}}
+    @include('layout.header')
     <!-- Header End -->
 
     <!-- About Section Start -->
@@ -74,13 +75,15 @@
                 @while(isset($beasiswa[$i]))  
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-                        <img  src="https://img.freepik.com/premium-vector/3d-hand-throwing-graduation-hats-air_169241-7265.jpg" alt="Programming" class="w-full">
+                        <img  src="{{ $beasiswa[$i]['image'] }}" alt="Programming" class="w-full">
                         <div class="py-8 px-6">
                             <h3>
-                                <a href="{{url('/posts/detailbeasiswa/'.$beasiswa[$i]['idBeasiswa'])}}" class="block mb-3 font-semibold text-lg text-dark hover:text-primary truncate dark:text-white">{{$beasiswa[$i]['namaBeasiswa']}}</a>
+                                <a href="{{ url('/detail-beasiswa/'.$beasiswa[$i]['idBeasiswa']) }}" class="block mb-3 font-semibold text-lg text-dark hover:text-primary truncate dark:text-white">{{$beasiswa[$i]['namaBeasiswa']}}</a>
                             </h3>
-                            <p class="font-medium text-base text-secondary mb-6">{{$beasiswa[$i]['deskripsi']}}</p>
-                            <a href="{{url('/posts/detailbeasiswa/'.$beasiswa[$i]['idBeasiswa'])}}" class="font-medium text-sm text-primary hover:opacity-80 flex justify-end text-right">Lihat Selengkapnya</a>
+                            <span class="font-medium text-base text-secondary mb-6 dark:text-white">
+                                {!! Str::limit($beasiswa[$i]['deskripsi'], 100 ) !!}
+                            </span>
+                            <a href="{{ url('/detail-beasiswa/'.$beasiswa[$i]['idBeasiswa']) }}" class="font-medium text-sm text-primary hover:opacity-80 flex justify-end text-right">Lihat Selengkapnya</a>
                         </div>
                     </div>
                 </div>
