@@ -37,7 +37,7 @@
                 <div class="flex flex-wrap">
                     <div class="w-full px-4 mb-10 lg:w-1/3">
                         <div class="w-full flex mb-3">
-                            <a href="javascript:history.back()" class="inline-flex justify-center text-base shadow-md font-medium bg-white text-primary text-md dark:bg-slate-800 dark:shadow-2xl py-2 px-4 rounded-3xl hover:opacity-80 hover:shadow-lg transition duration-500">⬅️ Kembali</a>
+                            <a href="javascript:history.back()" class="inline-flex justify-center text-sm shadow-md font-medium bg-white text-primary text-md dark:bg-slate-800 dark:shadow-2xl py-2 px-4 rounded-3xl hover:opacity-80 hover:shadow-lg transition duration-500">⬅️ Kembali</a>
                         </div>
                         <div class="rounded-md shadow-md overflow-hidden">
                             <img src="{{ $beasiswa['image'] }}" width="w-full" alt="{{ $beasiswa['namaBeasiswa'] }}">
@@ -49,11 +49,15 @@
                                 <p class="text-sm text-gray-600 dark:text-white">IPK Minimal: <span class="text-base font-medium text-navy-700 dark:text-primary">{{ $beasiswa['ipkMin'] }}</span></p>
                                 <p class="text-sm text-gray-600 dark:text-white">Status: <span class="text-base font-medium text-navy-700 dark:text-primary">{{ $beasiswa['status'] }}</span></p>
                             </div>
-                          </div>
-                      </div>
-                    <div class="w-full px-4 mb-10 lg:w-2/3">
+                        </div>
+                    </div>
+                    <div class="w-full px-4 mt-4 mb-10 lg:w-2/3">
                         <h3 class="font-semibold text-dark text-xl mb-4 lg:text-2xl lg:pt-10 dark:text-white">Deskripsi</h3>
                         <span class="font-medium text-base text-secondary mb-3 lg:text-lg text-justify">{!! $beasiswa['deskripsi'] !!} </span>
+            
+                        <div class="mt-4">
+                            <a href="{{ $beasiswa['linkDaftar'] }}" class="inline-flex justify-center text-base shadow-md font-medium bg-primary text-white py-2 px-4 rounded-3xl hover:opacity-80 hover:shadow-lg transition duration-500" target="_blank">Daftar Beasiswa</a>
+                        </div>
                     </div>
                 </div>
             </div>
